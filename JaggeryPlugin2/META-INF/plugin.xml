@@ -1,0 +1,45 @@
+<idea-plugin version="2">
+  <name>JaggeryPlugin2</name>
+  <description>short description of the plugin</description>
+  <version>1.0</version>
+  <vendor>wso2</vendor>
+
+  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="107.105"/>
+
+  <application-components>
+    <!-- Add your application components here -->
+      <component>
+          <implementation-class>Actions.editora</implementation-class>
+      </component>
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+      <action id="Jaggery_Editor" class="Actions.JaggeryEditor" text="Jaggery Editor" description="Jaggery Editor">
+          <add-to-group group-id="ToolsMenu" anchor="first"/>
+          <keyboard-shortcut keymap="$default" first-keystroke="ctrl Z"/>
+      </action>
+  </actions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+
+                <fileTypeFactory id="file type" implementation="newair.org.JaggeryFileTypeFactory" ></fileTypeFactory>
+                <syntaxHighlighter implementationClass="newair.org.SyntaxHighlightHandler"  key="JAGGERY"></syntaxHighlighter>
+
+                <fileEditorProvider implementation="com.intellij.openapi.fileEditor.impl.FileEditorProviderManagerImpl" id="fileprovider"></fileEditorProvider>
+                <lang.syntaxHighlighterFactory id="sh" implementationClass="newair.org.SyntaxHighlightHandler" key="syntaxhighlighting"></lang.syntaxHighlighterFactory>
+
+
+
+  </extensions>
+
+
+
+
+</idea-plugin>
